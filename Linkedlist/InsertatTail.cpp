@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+//insert at tail ---o(n)
 class Node{
     public:
      int data;
