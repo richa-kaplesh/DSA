@@ -20,21 +20,34 @@ class Node{
       }
 };
 
+Node* insertathead(Node*head , int newdata){
+    if(head == nullptr) {
+    return new Node(newdata);  
+    }
+    Node* newNode = new Node(newdata);
+    newNode->next = head;
+    newNode->prev = nullptr;
+    if(head!=nullptr){
+        head->prev = newNode;
+    }
+    newNode = head;
+    return head;
+}
 Node* insertattail(Node* head , int newdata){
     if(head == nullptr){
         return new Node(newdata);
     }
-    Node*temp = head;
+    Node* temp = head;
     while(temp->next!=nullptr){
         temp=temp->next;
-
     }
     Node* newNode = new Node(newdata);
     temp->next = newNode;
     newNode->prev = temp;
-
     return head;
+
 }
+
 void print(Node*head){
     Node* temp = head;
     while(temp!=nullptr){
