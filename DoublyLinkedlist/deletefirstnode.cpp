@@ -36,17 +36,15 @@ Node* insertathead(Node*head , int newdata){
 
 
 }
-Node* deleteNode(Node* head){
+Node* deletehead(Node* head){
     if(head->next==nullptr){
         delete head;
         return nullptr;
     }
-    Node* temp = head;
-    while(temp->next->next!= nullptr){
-        temp=temp->next;
-    }
-    delete temp->next;
-    temp->next= nullptr;
+    Node* temp = head->next;
+    temp->prev = nullptr;
+    delete head;
+    head = temp;
     return head;
 
 }
@@ -69,6 +67,6 @@ int main(){
     cout<<"before"<<endl;
     print(head);
     cout<<"after"<<endl;
-    head = deleteNode(head);
+    head = deletehead(head);
     print(head);
 }

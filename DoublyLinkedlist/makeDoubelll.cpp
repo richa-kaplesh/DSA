@@ -21,16 +21,14 @@ class Node{
 };
 
 Node* insertathead(Node*head , int newdata){
-    if(head == nullptr) {
-    return new Node(newdata);  
-    }
+
     Node* newNode = new Node(newdata);
     newNode->next = head;
     newNode->prev = nullptr;
     if(head!=nullptr){
         head->prev = newNode;
     }
-    newNode = head;
+    head= newNode;
     return head;
 }
 Node* insertattail(Node* head , int newdata){
